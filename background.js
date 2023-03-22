@@ -1,7 +1,8 @@
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
-    debugger
     if (request.type === "fetchChatHistory") {
-      chrome.history.search({ text: "chat.openai.com", maxResults: 1000 }, (results) => {
+      let startTime = new Date();
+      startTime.setTime(startTime.getTime() - 1000 * 60 * 60 * 24 * 90) // 90 days back in ms
+      chrome.history.search({ text: "chat.openai.com", maxResults: 1000, startTime: startTime.getTime() }, (results) => {
         const chatHistory = [];
         const chatUrlRegex = /https:\/\/chat\.openai\.com\/chat\/([a-zA-Z0-9\-]+)$/;
   
