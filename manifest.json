@@ -1,0 +1,18 @@
+{
+  "manifest_version": 3,
+  "name": "OpenAI Chat History",
+  "version": "1.0",
+  "description": "Parse browsing history for chat.openai.com calls and display the chat titles.",
+  "permissions": ["history", "tabs"],
+  "action": {
+    "default_icon": "icon_48.png",
+    "default_popup": "popup.html"
+  },
+  "icons": {
+    "48": "icon_48.png"
+  },
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  }
+}
